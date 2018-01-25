@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -21,7 +21,7 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/
 
 
 body{
@@ -33,9 +33,9 @@ body{
   margin-top: 20px;
 }
 
-button {
+/*button {
   margin: 10px;
   padding: 10px 20px;
   font-size: 20px;
   background-color: #e67e22;
-}
+}*/
