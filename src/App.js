@@ -15,11 +15,11 @@ class App extends Component {
       title: 'Movie Search'
     };
     this.searchClick = this.searchClick.bind(this);
-    this.movieClick = this.movieClick.bind(this);  
+    this.movieClick = this.movieClick.bind(this);
+    this.backClick = this.backClick.bind(this);  
   }
   
-  
-  searchClick() {
+  searchClick(event) {
     event.preventDefault();
     let query = this.refs.query.value;
     let omdbUrl =`http://www.omdbapi.com/?apikey=${omdbApiKey}&s="${query}"&type=movie`;
@@ -27,7 +27,6 @@ class App extends Component {
     fetch(omdbUrl)
       .then((response) => response.json())
       .then((responseJson) => {
-        // console.log(responseJson);
         const resultOmdb = responseJson;
         that.setState({
           movies: resultOmdb.Search
@@ -40,6 +39,7 @@ class App extends Component {
   }
 
   movieClick(ev) {
+    this.setState({viewMovie: true});
     var movieYear = ev.target.value; 
     var movieTitle = ev.target.dataset.name;
     var ytUrl = `https://www.googleapis.com/youtube/v3/search?q=${movieTitle} ${movieYear} trailer&order=relevance&part=snippet&type=video&maxResults=${ytResult}&key=${ytApiKey}`;
@@ -54,28 +54,53 @@ class App extends Component {
       });    
   }
 
-  render() {
+  backClick() {
+    this.setState({viewMovie: false});
+  }
+
+  renderNormal() {
     let title = this.state.title;
     var movies = this.state.movies.map(function(movie,i){
-      return <a href="#" key={i}><li   data-name={movie.Title} value={movie.Year}>{movie.Title} {movie.Year}</li></a>
+      return <a href='#' key={i}><li   data-name={movie.Title} value={movie.Year}>{movie.Title} {movie.Year}</li></a>
     });
     return (
-      <div>
+      <div className="flex-container">
         <h1>{title}</h1>
-        <input className="app_input" ref="query" type="text"/>
-        <button onClick={this.searchClick}>Search</button>
+        <form>
+          <input className="app_input" ref="query" type="text"/>
+          <button onClick={this.searchClick}>Search</button>
+        </form>
         <ul onClick={this.movieClick}>
           {movies}
         </ul>
-        {
-          this.state.resultyt.map((link, i) => {
-            var frame = <div key={i} className="youtube"><iframe  width="560" height="315" src={link} frameBorder="0" allowFullScreen></iframe></div>
-            return frame;
-          })
-        }
-        {this.frame}
       </div>
     );
+  }
+
+  renderView() {
+    return (
+      <div className="flex-container">
+        <h1>Movie Result</h1>
+        <div className="youtubeClip">      
+          {
+            this.state.resultyt.map((link,i) => {
+              var frame = <div key={i} ><iframe  width="560" height="315" src={link} frameBorder="0" allowFullScreen></iframe></div>
+              return frame;
+            })
+          }
+          {this.frame}
+          <button onClick={this.backClick}>Back</button>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    if(this.state.viewMovie){
+      return this.renderView();
+    }else{
+      return this.renderNormal();
+    }
   }
 }
 
