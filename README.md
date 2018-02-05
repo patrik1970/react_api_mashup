@@ -3,8 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a API-mashup built in React.<br>
 For this API-mashup have I used:<br>
-OmDbs Movie Database API<br>
-YouTubes API V3
+OmDbs Movie Database API [OMDb API](http://www.omdbapi.com/)<br>
+YouTubes API V3 [YouTube API V3](https://developers.google.com/youtube/v3/)
 
 ## Up and running
 
