@@ -1,9 +1,9 @@
 ## React Movie Seach App
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-This is a API-mashup in React.
-used APIs
-OmDbs Movie Database API
+This is a API-mashup built in React.<br>
+For this API-mashup have used:<br>
+OmDbs Movie Database API<br>
 YouTubes API V3
 
 ## Up and running
