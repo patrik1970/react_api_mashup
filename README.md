@@ -2,7 +2,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 This is a API-mashup built in React.<br>
-For this API-mashup have used:<br>
+For this API-mashup have I used:<br>
 OmDbs Movie Database API<br>
 YouTubes API V3
 
