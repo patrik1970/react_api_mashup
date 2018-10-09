@@ -22,7 +22,7 @@ class App extends Component {
   searchClick(event) {
     event.preventDefault();
     let query = this.refs.query.value;
-    let omdbUrl =`http://www.omdbapi.com/?apikey=${omdbApiKey}&s="${query}"&type=movie`;
+    let omdbUrl =`https://www.omdbapi.com/?apikey=${omdbApiKey}&s="${query}"&type=movie`;
     let that = this;
     fetch(omdbUrl)
       .then((response) => response.json())
