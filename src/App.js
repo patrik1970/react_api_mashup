@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const ytApiKey = 'AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA'
+const ytApiKey = 'AIzaSyAt1FSz4GviIzMAXro_oATwzRRLdyRqjfA'
 const ytResult = 5;
 const omdbApiKey = '99ad3b53'
 
