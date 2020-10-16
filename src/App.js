@@ -71,6 +71,7 @@ class App extends Component {
           <button onClick={this.searchClick}>Search</button>
         </form>
         <ul onClick={this.movieClick}>
+          <p>Click at the SearchResult</p>
           {movies}
         </ul>
       </div>
